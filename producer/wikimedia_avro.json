@@ -1,0 +1,205 @@
+{
+  "type": "record",
+  "name": "WikimediaRecord",
+  "fields": [
+    {
+      "name": "meta",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "WikimediaMetaRecord",
+          "fields": [
+            {
+              "name": "uri",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "request_id",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "dt",
+              "type": {
+                "type": "array",
+                "items": "int"
+              },
+              "default": []
+            },
+            {
+              "name": "domain",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "stream",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "topic",
+              "type": "string",
+              "default": ""
+            },
+            {
+              "name": "partition",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "offset",
+              "type": "long",
+              "default": 0
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "id",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "title_url",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "user",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "bot",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "notify_url",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "minor",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "length",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Length",
+          "fields": [
+            {
+              "name": "old",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            },
+            {
+              "name": "new",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "revision",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Revision",
+          "fields": [
+            {
+              "name": "old",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            },
+            {
+              "name": "new",
+              "type": [
+                "null",
+                "long"
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "patrolled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "server_url",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "server_name",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "server_script_path",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "wiki",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "parsedcomment",
+      "type": "string",
+      "default": ""
+    }
+  ]
+}
