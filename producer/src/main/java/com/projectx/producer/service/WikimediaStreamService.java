@@ -1,6 +1,6 @@
 package com.projectx.producer.service;
 
-import com.projectx.producer.model.WikimediaRecord;
+import com.projectx.producer.dto.WikimediaRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

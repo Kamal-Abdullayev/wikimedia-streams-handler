@@ -1,6 +1,7 @@
 package com.projectx.consumer.config;
 
-import com.projectx.consumer.model.WikimediaRecord;
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -23,10 +24,13 @@ public class KafkaConsumerConfig {
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer-1");
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
+        configProps.put("schema.registry.url", "http://localhost:8081");
         configProps.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);
-        configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "com.projectx.consumer.model");
-        configProps.put(JsonDeserializer.VALUE_DEFAULT_TYPE, "com.projectx.consumer.model.WikimediaRecord");
+        configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "com.projectx.producer.dto");
+        configProps.put(JsonDeserializer.VALUE_DEFAULT_TYPE, "com.projectx.producer.dto.WikimediaRecord");
+        configProps.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
+
         return new DefaultKafkaConsumerFactory<>(configProps);
     }
 
@@ -40,8 +44,7 @@ public class KafkaConsumerConfig {
 
     @Bean
     public DefaultErrorHandler errorHandler() {
-        return new DefaultErrorHandler((record, exception) -> {
-           log.error("Error occurred while processing record: {} ", record, exception);
-        });
+        return new DefaultErrorHandler((record, exception) ->
+                log.error("Error occurred while processing record: {} ", record, exception));
     }
 }
