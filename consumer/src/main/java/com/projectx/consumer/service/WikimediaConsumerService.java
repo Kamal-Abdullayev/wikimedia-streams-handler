@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 @EnableKafka
 public class WikimediaConsumerService {
 
-    @KafkaListener(topics = {"wikimedia.recent-activities"}, groupId = "consumer-1")
-    public void listener(WikimediaRecord wikimediaRecord) {
-        log.info("Received message: {}", wikimediaRecord);
-    }
+//    @KafkaListener(topics = {"wikimedia.recent-activities"}, groupId = "consumer-1")
+//    public void listener(WikimediaRecord wikimediaRecord) {
+//        log.info("Received message: {}", wikimediaRecord);
+//    }
 
 }
