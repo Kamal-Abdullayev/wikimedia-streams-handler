@@ -7,25 +7,22 @@ CREATE TABLE wikimedia_meta_record (
                                        domain VARCHAR(255),
                                        stream VARCHAR(255),
                                        topic VARCHAR(255),
-                                       partition INT,
+                                       `partition` INT,
                                        `offset` BIGINT
 );
 
--- Create table for `Length`
 CREATE TABLE length (
                         id BIGINT AUTO_INCREMENT PRIMARY KEY,
                         old_length BIGINT,
                         new_length BIGINT
 );
 
--- Create table for `Revision`
 CREATE TABLE revision (
                           id BIGINT AUTO_INCREMENT PRIMARY KEY,
                           old_revision BIGINT,
                           new_revision BIGINT
 );
 
--- Create table for `WikimediaRecord`
 CREATE TABLE wikimedia_record (
                                   wikimedia_record_id BIGINT AUTO_INCREMENT PRIMARY KEY,
                                   id BIGINT,
