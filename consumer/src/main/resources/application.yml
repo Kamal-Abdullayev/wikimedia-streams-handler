@@ -4,9 +4,22 @@ spring:
   application:
     name: consumer
 
-  profiles:
-    active: prod
-
   kafka:
     consumer:
       auto-offset-reset: earliest
+      bootstrap-server: http://localhost:9092
+      group-id: wikimedia.recent-activities.consumer
+      schema-registry-url: http://localhost:8081
+      json-use-type-headers: false
+      trusted-packages: com.projectx.producer.dto
+      json-value-default-type: com.projectx.producer.dto.WikimediaRecord
+      specific-avro-reader-config: true
+
+    producer:
+      bootstrap-server: http://localhost:9092
+      schema-registry-url: http://localhost:8081
+      request-timeout-ms: 3000
+      max-block-ms: 3000
+
+client:
+  monitoring-service-url: http://localhost:8093/monitoring
