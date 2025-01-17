@@ -23,10 +23,12 @@ The architecture is designed with numbered arrows to represent the flow of data 
 ## 🛠️ Steps to Set Up the Project
 
 ### 🚀 Running the Project
-Run the following command to start the project using Docker Compose:
+Run the following command to start the Kafka ecosystem using Docker Compose
    ```bash
    docker compose up -d
    ```
+After that, you can run the services in your favorite IDE
+
 ### 🔧 Project details
 
 - Producer port - 8090
